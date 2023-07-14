@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 /**
- * @property mixed role
+ * @property mixed peran
  * @method static where(string $string, string $string1)
  * @method static create(array $array)
  */
@@ -24,10 +24,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'nama',
         'email',
         'password',
-        'role'
+        'peran'
     ];
 
     /**
@@ -50,13 +50,13 @@ class User extends Authenticatable
     ];
 
     /**
-     * @param mixed $roles
+     * @param mixed $peran
      * @return bool
      */
-    public function hasRoles(...$roles): bool
+    public function memilikiPeran(...$peran): bool
     {
-        foreach ($roles as $role){
-            if($this->role === $role)
+        foreach ($peran as $peran){
+            if($this->peran === $peran)
                 return true;
             else
                 return false;
@@ -66,24 +66,24 @@ class User extends Authenticatable
     /**
      * @return BelongsToMany
      */
-    public function subjects(): BelongsToMany
+    public function mataPelajaran(): BelongsToMany
     {
-        return $this->belongsToMany(Subject::class)->withTimestamps();
+        return $this->belongsToMany(MataPelajaran::class)->withTimestamps();
     }
 
     /**
      * @return BelongsToMany
      */
-    public function classes(): BelongsToMany
+    public function kelas(): BelongsToMany
     {
-        return $this->belongsToMany(Classe::class, 'class_user', 'user_id', 'class_id')->withTimestamps();
+        return $this->belongsToMany(Kelas::class, 'kelas_pengguna', 'pengguna_id', 'kelas_id')->withTimestamps();
     }
 
     /**
      * @return HasMany
      */
-    public function attendances(): HasMany
+    public function kehadiran(): HasMany
     {
-        return $this->hasMany(Attendance::class);
+        return $this->hasMany(Kehadiran::class);
     }
 }

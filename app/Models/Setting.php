@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Config;
 
 /**
- * @method where(string $string, $key)
- * @method static create(mixed|string[] $setting)
+ * @method where(string $string, $kunci)
+ * @method static create(mixed|string[] $pengaturan)
  */
 class Setting extends Model
 {
@@ -19,40 +19,44 @@ class Setting extends Model
     /**
      * @var string
      */
-    protected $table = 'settings';
+    protected $table = 'setting';
 
     /**
      * @var array
      */
-    protected $fillable = ['key', 'value'];
+    protected $fillable = ['kunci', 'nilai'];
 
     /**
-     * @param $key
+     * Mendapatkan nilai pengaturan berdasarkan kunci.
+     *
+     * @param $kunci
      * @return void
      */
-    public static function get($key)
+    public static function dapatkanNilai($kunci)
     {
         $setting = new self();
-        $entry = $setting->where('key', $key)->first();
-        if (!$entry) {
+        $entri = $setting->where('kunci', $kunci)->first();
+        if (!$entri) {
             return;
         }
-        return $entry->value;
+        return $entri->nilai;
     }
 
     /**
-     * @param $key
-     * @param null $value
+     * Mengatur nilai pengaturan berdasarkan kunci.
+     *
+     * @param $kunci
+     * @param null $nilai
      * @return bool
      */
-    public static function set($key, $value = null): bool
+    public static function aturNilai($kunci, $nilai = null): bool
     {
         $setting = new self();
-        $entry = $setting->where('key', $key)->firstOrFail();
-        $entry->value = $value;
-        $entry->saveOrFail();
-        Config::set('key', $value);
-        if (Config::get($key) == $value) {
+        $entri = $setting->where('kunci', $kunci)->firstOrFail();
+        $entri->nilai = $nilai;
+        $entri->saveOrFail();
+        Config::set('kunci', $nilai);
+        if (Config::get($kunci) == $nilai) {
             return true;
         }
         return false;

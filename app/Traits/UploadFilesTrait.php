@@ -8,18 +8,20 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 
 /**
- * Trait UploadAble
+ * Trait UploadFilesTrait
  * @package App\Traits
  */
 trait UploadFilesTrait
 {
     /**
+     * Unggah satu file.
+     *
      * @param Request $request
      * @param  $file
      * @param null $folder
      * @return string
      */
-    public function uploadOne(Request $request, $file, $folder = null): string
+    public function unggahSatu(Request $request, $file, $folder = null): string
     {
         $url = "";
         $path = public_path($folder);
@@ -35,12 +37,14 @@ trait UploadFilesTrait
     }
 
     /**
+     * Unggah banyak file.
+     *
      * @param Request $request
      * @param $file
      * @param null $folder
      * @return array
      */
-    public function uploadMany(Request $request, $file, $folder = null): array
+    public function unggahBanyak(Request $request, $file, $folder = null): array
     {
         $urls = [];
         $path = public_path($folder);
@@ -57,9 +61,11 @@ trait UploadFilesTrait
     }
 
     /**
+     * Hapus satu file.
+     *
      * @param $file
      */
-    public function deleteOne($file)
+    public function hapusSatu($file)
     {
         $path = str_replace(asset(''), "", $file);
         if (File::exists($path)) {

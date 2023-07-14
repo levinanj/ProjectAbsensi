@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         if (!User::where('email', 'admin@app.com')->exists()) {
             User::create([
-                'name' => 'Nama Dosen/Pengajar',
+                'name' => 'Nama Guru',
                 'email' => 'admin@app.com',
                 'email_verified_at' => Carbon::now(),
                 'password' => bcrypt('password'),

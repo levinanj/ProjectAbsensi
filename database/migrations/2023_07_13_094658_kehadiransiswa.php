@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAttendanceStudentTable extends Migration
+class kehadiransiswa extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateAttendanceStudentTable extends Migration
      */
     public function up()
     {
-        Schema::create('attendance_student', function (Blueprint $table) {
+        Schema::create('kehadiransiswa', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('attendance_id')->constrained('attendances')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('student_id')->constrained('students')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('id_kehadiran')->constrained('kehadiran')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('id_siswa')->constrained('siswa')->cascadeOnDelete()->cascadeOnUpdate();
             $table->boolean('status')->nullable();
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class CreateAttendanceStudentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attendance_student');
+        Schema::dropIfExists('kehadiran_siswa');
     }
 }

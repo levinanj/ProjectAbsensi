@@ -5,16 +5,16 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
-class ForgotPasswordController extends Controller
+class LupaPasswordController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | Password Reset Controller
+    | Controller Reset Password
     |--------------------------------------------------------------------------
     |
-    | This controller is responsible for handling password reset emails and
-    | includes a trait which assists in sending these notifications from
-    | your application to your users. Feel free to explore this trait.
+    | Controller ini bertanggung jawab untuk mengirim email reset password dan
+    | menggunakan sebuah trait yang membantu dalam mengirimkan notifikasi ini
+    | dari aplikasi Anda ke pengguna. Silakan menjelajahi trait ini.
     |
     */
 

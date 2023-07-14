@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Attendance;
 
-use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Foundation\Http\Requests;
 
-class StoreAttendanceRequest extends FormRequest
+class StoreAttendanceRequest extends Requests
 {
     /**
      * Determine if the user is authorized to make this request.

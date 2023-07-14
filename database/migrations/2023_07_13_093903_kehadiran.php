@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStudentsTable extends Migration
+class kehadiran extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
+        Schema::create('kehadiran', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('phone');
+            $table->foreignId('id_mapel')->constrained('mapel')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('id_user')->constrained('user')->cascadeOnDelete()->cascadeOnUpdate(); // the teacher
+            $table->date('date');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('kehadiran');
     }
 }

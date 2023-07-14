@@ -10,19 +10,19 @@ class ResetPasswordController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | Password Reset Controller
+    | Reset Password Controller
     |--------------------------------------------------------------------------
     |
-    | This controller is responsible for handling password reset requests
-    | and uses a simple trait to include this behavior. You're free to
-    | explore this trait and override any methods you wish to tweak.
+    | Controller ini bertanggung jawab untuk menangani permintaan reset password
+    | dan menggunakan sebuah trait sederhana untuk menyertakan perilaku ini.
+    | Anda bebas untuk menjelajahi trait ini dan mengganti metode apa pun yang ingin Anda ubah.
     |
     */
 
     use ResetsPasswords;
 
     /**
-     * Where to redirect users after resetting their password.
+     * Tempat untuk mengarahkan pengguna setelah mengatur ulang password mereka.
      *
      * @var string
      */

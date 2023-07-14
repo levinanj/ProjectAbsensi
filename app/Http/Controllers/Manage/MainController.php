@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Manage;
 
 use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
-use App\Models\Student;
-use App\Models\Subject;
+use App\Models\Siswa;
+use App\Models\MataPelajaran;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;

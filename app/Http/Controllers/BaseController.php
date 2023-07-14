@@ -11,52 +11,52 @@ use RealRashid\SweetAlert\Facades\Alert;
 class BaseController extends Controller
 {
     /**
-     * Set Page title and subtitle according to the requested page
-     * Make them dynamic for the SEO
-     * @param $title
-     * @param $subTitle
+     * Set judul Halaman dan subjudul sesuai dengan halaman yang diminta
+     * Jadikan mereka dinamis untuk SEO
+     * @param $judul
+     * @param $subJudul
      */
-    protected function setPageTitle($title, $subTitle)
+    protected function setJudulHalaman($judul, $subJudul)
     {
-        view()->share(['pageTitle' => $title, 'subTitle' => $subTitle]);
+        view()->share(['judulHalaman' => $judul, 'subJudul' => $subJudul]);
     }
 
     /**
-     * @param $route
-     * @param $title
-     * @param $message
-     * @param string $type
+     * @param $rute
+     * @param $judul
+     * @param $pesan
+     * @param string $jenis
      * @param bool $error
-     * @param bool $withOldInputWhenError
+     * @param bool $denganInputLamaJikaError
      * @return RedirectResponse
      */
-    protected function responseRedirect($route, $title, $message, string $type = 'info', bool $error = false, bool $withOldInputWhenError = false): RedirectResponse
+    protected function responsRedirect($rute, $judul, $pesan, string $jenis = 'info', bool $error = false, bool $denganInputLamaJikaError = false): RedirectResponse
     {
-        // Show Sweet Alert Notification
-        alert($title, $message, $type);
+        // Tampilkan Pemberitahuan Sweet Alert
+        alert($judul, $pesan, $jenis);
 
-        // If there is error's return to same page and show the error's
-        if ($error && $withOldInputWhenError) {
+        // Jika terjadi error, kembali ke halaman yang sama dan tampilkan error
+        if ($error && $denganInputLamaJikaError) {
             return redirect()->back()->withInput();
         }
-        // else redirect to another route
-        return redirect()->route($route);
+        // Jika tidak, alihkan ke rute lain
+        return redirect()->route($rute);
     }
 
     /**
-     * @param $title
-     * @param $message
-     * @param string $type
+     * @param $judul
+     * @param $pesan
+     * @param string $jenis
      * @param bool $error
-     * @param bool $withOldInputWhenError
+     * @param bool $denganInputLamaJikaError
      * @return RedirectResponse
      */
-    protected function responseRedirectBack($title, $message, string $type = 'info', bool $error = false, bool $withOldInputWhenError = false): RedirectResponse
+    protected function responsRedirectKembali($judul, $pesan, string $jenis = 'info', bool $error = false, bool $denganInputLamaJikaError = false): RedirectResponse
     {
-        // Show Sweet Alert Notification
-        alert($title, $message, $type);
+        // Tampilkan Pemberitahuan Sweet Alert
+        alert($judul, $pesan, $jenis);
 
-        // Redirect Back
+        // Alihkan Kembali
         return redirect()->back();
     }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Attendance_Student;
+use App\Models\Kehadiran;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class AttendanceStudentPolicy
+class KehadiranSiswaPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class AttendanceStudentPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Attendance_Student  $attendanceStudent
+     * @param  \App\Models\Kehadiran  $kehadiranSiswa
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Attendance_Student $attendanceStudent)
+    public function view(User $user, Kehadiran $kehadiranSiswa)
     {
         //
     }
@@ -48,10 +48,10 @@ class AttendanceStudentPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Attendance_Student  $attendanceStudent
+     * @param  \App\Models\Kehadiran  $kehadiranSiswa
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Attendance_Student $attendanceStudent)
+    public function update(User $user, Kehadiran $kehadiranSiswa)
     {
         //
     }
@@ -60,10 +60,10 @@ class AttendanceStudentPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Attendance_Student  $attendanceStudent
+     * @param  \App\Models\Kehadiran  $kehadiranSiswa
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Attendance_Student $attendanceStudent)
+    public function delete(User $user, Kehadiran $kehadiranSiswa)
     {
         //
     }
@@ -72,10 +72,10 @@ class AttendanceStudentPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Attendance_Student  $attendanceStudent
+     * @param  \App\Models\Kehadiran $kehadiranSiswa
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Attendance_Student $attendanceStudent)
+    public function restore(User $user, Kehadiran $kehadiranSiswa)
     {
         //
     }
@@ -84,10 +84,10 @@ class AttendanceStudentPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Attendance_Student  $attendanceStudent
+     * @param  \App\Models\Kehadiran $kehadiranSiswa
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Attendance_Student $attendanceStudent)
+    public function forceDelete(User $user, Kehadiran $kehadiranSiswa)
     {
         //
     }

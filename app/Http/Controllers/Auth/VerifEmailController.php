@@ -6,30 +6,30 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 
-class VerificationController extends Controller
+class VerifEmailController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
     | Email Verification Controller
     |--------------------------------------------------------------------------
     |
-    | This controller is responsible for handling email verification for any
-    | user that recently registered with the application. Emails may also
-    | be re-sent if the user didn't receive the original email message.
+    | Controller ini bertanggung jawab untuk menangani verifikasi email bagi
+    | pengguna yang baru saja mendaftar dengan aplikasi. Email juga dapat
+    | dikirim ulang jika pengguna tidak menerima pesan email asli.
     |
     */
 
     use VerifiesEmails;
 
     /**
-     * Where to redirect users after verification.
+     * Tempat untuk mengarahkan pengguna setelah verifikasi.
      *
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
-     * Create a new controller instance.
+     * Membuat instance dari controller baru.
      *
      * @return void
      */

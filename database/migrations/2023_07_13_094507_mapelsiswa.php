@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSettingsTable extends Migration
+class mapelsiswa extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('mapelsiswa', function (Blueprint $table) {
             $table->id();
-            $table->string('key')->unique();
-            $table->text('value')->nullable();
+            $table->foreignId('id_mapel')->constrained('mapel')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('id_siswa')->constrained('siswa')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
+            $table->unique(['id_mapel', 'id_siswa']);
         });
     }
 
@@ -28,6 +29,6 @@ class CreateSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('kelas_siswa');
     }
 }
